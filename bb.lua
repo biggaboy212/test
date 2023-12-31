@@ -122,9 +122,11 @@ Window:AddCommand('Autoparry', {}, 'Autoparry Toggle, hits the ball automaticall
     if APset.Autoparry.Enabled == false then
         APset.Autoparry.Enabled = true
         Window:CreateNotification('KarpiWare', 'Autoparry Enabled', 3)
+        print(APset.Autoparry)
     elseif APset.Autoparry.Enabled == true then
         APset.Autoparry.Enabled = false;
         Window:CreateNotification('KarpiWare', 'Autoparry Disabled', 3)
+        print(APset.Autoparry)
     end
 end)
 
@@ -134,12 +136,15 @@ Window:AddCommand('Cooldown', {'Amount'}, 'Min-0 Max-1 Autoparry cooldown', func
     if val > 1 then
         APset.Autoparry.Debounce = 1
         Window:CreateNotification('KarpiWare', 'Cooldown changed to 1', 3)
+        print(APset.Autoparry)
     elseif val < 0 then
         APset.Autoparry.Debounce = 0
         Window:CreateNotification('KarpiWare', 'Cooldown changed to 0', 3)
+        print(APset.Autoparry)
     elseif val <= 1 and val >= 0 then
         APset.Autoparry.Debounce = val
         Window:CreateNotification('KarpiWare', 'Cooldown changed to '..val, 3)
+        print(APset.Autoparry)
     end
 end)
 
@@ -149,12 +154,15 @@ Window:AddCommand('ConstantRange', {'Amount'}, 'Min-0 Max-30 Constant Range [Stu
     if val > 30 then
         APset.Autoparry.ConstantRange = 30
         Window:CreateNotification('KarpiWare', 'Cooldown changed to 30', 3)
+        print(APset.Autoparry)
     elseif val < 0 then
         APset.Autoparry.ConstantRange = 0
         Window:CreateNotification('KarpiWare', 'Cooldown changed to 0', 3)
+        print(APset.Autoparry)
     elseif val <= 30 and val >= 0 then
         APset.Autoparry.ConstantRange = val
         Window:CreateNotification('KarpiWare', 'Cooldown changed to '..val, 3)
+        print(APset.Autoparry)
     end
 end)
 
@@ -164,18 +172,22 @@ Window:AddCommand('TimedRange', {'Amount'}, 'Min-0 Max-1 Timed Range [Seconds]',
     if val > 1 then
         APset.Autoparry.Range = 1
         Window:CreateNotification('KarpiWare', 'Timed Range changed to 1', 3)
+        print(APset.Autoparry)
     elseif val < 0 then
         APset.Autoparry.Range = 0
         Window:CreateNotification('KarpiWare', 'Timed Range changed to 0', 3)
+        print(APset.Autoparry)
     elseif val <= 1 and val >= 0 then
         APset.Autoparry.Range = val
         Window:CreateNotification('KarpiWare', 'Timed Range changed to '..val, 3)
+        print(APset.Autoparry)
     end
 end)
 
 -- Aura
 Window:AddCommand('Aura', {}, 'Blatant aura, rejoin to stop', function(Arguments, Speaker)
     Window:CreateNotification('KarpiWare', 'Enabled Aura', 3)
+    print(APset.Autoparry)
     local function getspeed()
         for i,v in pairs(game.Workspace.Balls:GetChildren()) do 
             if v.zoomies.VectorVelocity ~= empty then
