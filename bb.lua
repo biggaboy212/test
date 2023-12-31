@@ -130,12 +130,13 @@ end)
 
 -- Cooldown
 Window:AddCommand('Cooldown', {'Amount'}, 'Min-0 Max-1 Autoparry cooldown', function(Arguments, Speaker)
-    if Arguments[1] > 1 then
+    val = tonumber(Arguments[1])
+    if val > 1 then
         Window:CreateNotification('KarpiWare', '!! Min-0 Max-1 !!', 3)
-    elseif Arguments[1] < 0 then
+    elseif val < 0 then
         Window:CreateNotification('KarpiWare', '!! Min-0 Max-1 !!', 3)
-    elseif Arguments[1] < 1 and Arguments[1] > 0 then
-        APset.Autoparry.Debounce = Arguments[1]
-        Window:CreateNotification('KarpiWare', 'Cooldown changed to '..Arguments[1], 3)
+    elseif val < 1 and val > 0 then
+        APset.Autoparry.Debounce = val
+        Window:CreateNotification('KarpiWare', 'Cooldown changed to '..val, 3)
     end
 end)
