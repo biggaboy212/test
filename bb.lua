@@ -132,11 +132,98 @@ end)
 Window:AddCommand('Cooldown', {'Amount'}, 'Min-0 Max-1 Autoparry cooldown', function(Arguments, Speaker)
     val = tonumber(Arguments[1])
     if val > 1 then
-        Window:CreateNotification('KarpiWare', '!! Min-0 Max-1 !!', 3)
+        APset.Autoparry.Debounce = 1
+        Window:CreateNotification('KarpiWare', 'Cooldown changed to 1', 3)
     elseif val < 0 then
-        Window:CreateNotification('KarpiWare', '!! Min-0 Max-1 !!', 3)
+        APset.Autoparry.Debounce = 0
+        Window:CreateNotification('KarpiWare', 'Cooldown changed to 0', 3)
     elseif val <= 1 and val >= 0 then
         APset.Autoparry.Debounce = val
         Window:CreateNotification('KarpiWare', 'Cooldown changed to '..val, 3)
     end
 end)
+
+-- ConstantRange
+Window:AddCommand('ConstantRange', {'Amount'}, 'Min-0 Max-30 Constant Range [Studs]', function(Arguments, Speaker)
+    val = tonumber(Arguments[1])
+    if val > 30 then
+        APset.Autoparry.ConstantRange = 30
+        Window:CreateNotification('KarpiWare', 'Cooldown changed to 30', 3)
+    elseif val < 0 then
+        APset.Autoparry.ConstantRange = 0
+        Window:CreateNotification('KarpiWare', 'Cooldown changed to 0', 3)
+    elseif val <= 30 and val >= 0 then
+        APset.Autoparry.ConstantRange = val
+        Window:CreateNotification('KarpiWare', 'Cooldown changed to '..val, 3)
+    end
+end)
+
+-- TimedRange
+Window:AddCommand('TimedRange', {'Amount'}, 'Min-0 Max-1 Timed Range [Seconds]', function(Arguments, Speaker)
+    val = tonumber(Arguments[1])
+    if val > 1 then
+        APset.Autoparry.Range = 1
+        Window:CreateNotification('KarpiWare', 'Timed Range changed to 1', 3)
+    elseif val < 0 then
+        APset.Autoparry.Range = 0
+        Window:CreateNotification('KarpiWare', 'Timed Range changed to 0', 3)
+    elseif val <= 1 and val >= 0 then
+        APset.Autoparry.Range = val
+        Window:CreateNotification('KarpiWare', 'Timed Range changed to '..val, 3)
+    end
+end)
+
+-- Aura
+Window:AddCommand('Aura', {}, 'Blatant aura, rejoin to stop', function(Arguments, Speaker)
+    Window:CreateNotification('KarpiWare', 'Enabled Aura', 3)
+    local function getspeed()
+        for i,v in pairs(game.Workspace.Balls:GetChildren()) do 
+            if v.zoomies.VectorVelocity ~= empty then
+                return v.zoomies.VectorVelocity;
+            end
+        end
+    end
+    game.Workspace.Balls.ChildAdded:Connect(function(v)
+        v.Changed:Connect(function(prop)
+            if getspeed().X > getspeed().Z then 
+                char.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,5,10);
+            else 
+                char.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(10,5,0);
+            end
+            cam.CameraSubject = v
+            if prop == "BrickColor" and v[prop] == color then
+                while v[prop] == color and v and char.Humanoid.Health ~= 0 do 
+                    cnt = 0
+                    hit:FireServer(0.5,cam.CFrame,{},game.Workspace.Balls:GetChildren())
+                    while v.BrickColor == color and cnt ~= 20 do cnt += 1 task.wait() end
+                end
+                task.wait()
+            end;
+        end);
+    end);
+end)
+
+local hitcd = false
+	
+	function counter()
+		task.wait(APset.Autoparry.Cooldown)
+		hitcd = false
+	end
+    game.Workspace.Balls.ChildAdded:Connect(function(v)
+        v:GetPropertyChangedSignal("BrickColor"):Connect(function()
+			if v.BrickColor ~= color then 
+				hitcd = false
+			end
+		end)
+		v:GetPropertyChangedSignal("Position"):Connect(function()
+            if APset.Autoparry.Toggle and v["BrickColor"] == color then
+				if (estimateTime(v) < APset.Autoparry.Range or getdistance(v) < APset.Autoparry.ConstantRange) and not hitcd then 
+					hitcd = true
+					task.spawn(counter)
+					print("Hit",APset.Autoparry.Range,APset.Autoparry.ConstantRange,APset.Autoparry.Cooldown)
+					hit:FireServer(0.5,CFrame.new(),{},{})
+				end
+			end
+			task.wait()
+		end)
+    end)
