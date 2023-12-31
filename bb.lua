@@ -1,4 +1,3 @@
-print('tst')
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20Command%20UI%20Library/Source.lua', true))()
 
 local savedtheme = nil
@@ -136,7 +135,7 @@ Window:AddCommand('Cooldown', {'Amount'}, 'Min-0 Max-1 Autoparry cooldown', func
         Window:CreateNotification('KarpiWare', '!! Min-0 Max-1 !!', 3)
     elseif val < 0 then
         Window:CreateNotification('KarpiWare', '!! Min-0 Max-1 !!', 3)
-    elseif val < 1 and val > 0 then
+    elseif val <= 1 and val >= 0 then
         APset.Autoparry.Debounce = val
         Window:CreateNotification('KarpiWare', 'Cooldown changed to '..val, 3)
     end
