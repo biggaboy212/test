@@ -118,11 +118,6 @@ print(NewPart.CFrame.Z)
 local plr1 = game.Players.LocalPlayer.Character
 plr1.HumanoidRootPart.CFrame = NewPart.CFrame
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Games/Da%20Hood/SilentAimAimLock.lua"))()
-
-Aiming.ShowFOV = true
-
-
 ToggleKey = Enum.KeyCode.C
 SprintKey = Enum.KeyCode.Tab
 
@@ -148,7 +143,7 @@ rightMouseButtonDown = false
 targetFOV = 70
 
 sprinting = false;
-sprintingSpeed = 3;
+sprintingSpeed = 6;
 
 keysDown = {}
 
