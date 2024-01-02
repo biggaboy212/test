@@ -1,4 +1,4 @@
-local version = "1.4T"
+local version = "1.45T"
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20Command%20UI%20Library/Source.lua', true))()
 
 local Window = Library:CreateWindow({
@@ -144,16 +144,16 @@ function targetesp(targetplr)
 
             -- tracers (copied over from one of my other scripts so some variables from above aren't used)
             if lines == true then
-            drawings.line.Visible = true;
-            drawings.line.From = newVector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
-            drawings.line.To = newVector2.new(position.X, position.Y)
+            esp.line.Visible = true;
+            esp.line.From = newVector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+            esp.line.To = newVector2.new(position.X, position.Y)
             elseif lines == false then
-                drawings.line.Visible = false;
+                esp.line.Visible = false;
             end
         end
     else
         esp.box.Visible = false;
-        drawings.line.Visible = false;
+        esp.line.Visible = false;
     end
  end
  
