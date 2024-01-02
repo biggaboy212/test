@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-	Name = "KarpiWare Reborn",
+	Name = "KarpiWare Reborn 2",
 	LoadingTitle = "Loading",
 	LoadingSubtitle = "by brady",
 	ConfigurationSaving = {
