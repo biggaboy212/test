@@ -91,7 +91,7 @@ local Toggle22242 = Tab:CreateToggle({
     if Value == true then
 local PPname = "[Revolver]"
 local PPlocation = game.Players.LocalPlayer.Character:WaitForChild(PPname)
-PPlocation.GripPos = Vector3.new(0,-50,0)
+PPlocation.GripPos = Vector3.new(0,-15,0)
 elseif Value == false then
     local PPname = "[Revolver]"
 local PPlocation = game.Players.LocalPlayer.Character:WaitForChild(PPname)
