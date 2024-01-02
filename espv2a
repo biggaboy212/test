@@ -1,4 +1,11 @@
 -- ESP
+_G.Settings = {
+    Enabled = true, -- Enable ESP (Execute script again with this set to false to disable ESP)
+    TeamCheck = true, -- TeamCheck, When enabled, only applies esp to players on the opposite team(s)
+    Boxes = true, -- When enabled, draws Box ESP
+    Tracers = true, -- When enabled, draws Tracers/Line ESP
+    Names = true, -- When enabled, Creates NameTag ESP
+}
            -- services
            local runService = game:GetService("RunService");
  
@@ -104,11 +111,16 @@
                     end
                 end
 
-            if _G.Settings.TeamCheck and player.TeamColor == game:GetService("Players").LocalPlayer then
+            if _G.Settings.TeamCheck and player.TeamColor == game:GetService("Players").LocalPlayer.TeamColor then
                 esp.box.Visible = false;
                 esp.line.Visible = false;
                 esp.gui.Active = false;
                 esp.esp.Visible = false;
+            else
+                esp.box.Visible = true;
+                esp.line.Visible = true;
+                esp.gui.Active = true;
+                esp.esp.Visible = true;
             end
 
               else
