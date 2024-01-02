@@ -1,4 +1,4 @@
--- ESP V2 by biggaboy212
+-- ESP
 _G.Settings = {
     Enabled = true, -- Enable ESP (Execute script again with this set to false to disable ESP)
     Boxes = true,
@@ -117,7 +117,7 @@ _G.Settings = {
               
               -- add esp
               for _, player in next, game:GetService("Players"):GetPlayers() do
-                  if player ~= game:GetService("Player").LocalPlayer then
+                  if player ~= game:GetService("Players").LocalPlayer then
                       createEsp(player);
                   end
                end
