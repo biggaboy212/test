@@ -1,4 +1,4 @@
-local version = "1.3T"
+local version = "1.35T"
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20Command%20UI%20Library/Source.lua', true))()
 
 local Window = Library:CreateWindow({
@@ -87,7 +87,7 @@ function targetesp(targetplr)
     drawings.line.Visible = false;
     drawings.line.From = Vector2.new(0, 0);
     drawings.line.To = Vector2.new(1, 1);
-    drawings.line.Color = BColor3.fromRGB(0,255,0);
+    drawings.line.Color = Color3.fromRGB(0,255,0);
     drawings.line.Thickness = 2;
     drawings.line.ZIndex = 2;
 
