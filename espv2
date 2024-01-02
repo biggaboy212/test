@@ -1,9 +1,10 @@
 -- ESP
 _G.Settings = {
     Enabled = true, -- Enable ESP (Execute script again with this set to false to disable ESP)
-    Boxes = true,
-    Tracers = true,
-    Names = true,
+    TeamCheck = true, -- TeamCheck, When enabled, only applies esp to players on the opposite team(s)
+    Boxes = true, -- When enabled, draws Box ESP
+    Tracers = true, -- When enabled, draws Tracers/Line ESP
+    Names = true, -- When enabled, Creates NameTag ESP
 }
            -- services
            local runService = game:GetService("RunService");
@@ -99,19 +100,29 @@ _G.Settings = {
                     elseif _G.Settings.Boxes == false then
                         esp.box.Visible = false;
                     end
-                      end
-          
-                      -- tracers (copied over from one of my other scripts so some variables from above aren't used)
-                      if _G.Settings.Tracers and visible then
-                      esp.line.Visible = true;
-                      esp.line.From = newVector2(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
-                      esp.line.To = newVector2(position.X, position.Y)
-                      elseif _G.Settings.Tracers == false then
-                          esp.line.Visible = false;
-                      end
+
+                    -- tracers (copied over from one of my other scripts so some variables from above aren't used)
+                    if _G.Settings.Tracers and visible then
+                        esp.line.Visible = true;
+                        esp.line.From = newVector2(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+                        esp.line.To = newVector2(position.X, position.Y)
+                    elseif _G.Settings.Tracers == false then
+                        esp.line.Visible = false;
+                    end
+                end
+
+            if _G.Settings.TeamCheck and player.TeamColor == game:GetService("Players").LocalPlayer then
+                esp.box.Visible = false;
+                esp.line.Visible = false;
+                esp.gui.Active = false;
+                esp.esp.Visible = false;
+            end
+
               else
                   esp.box.Visible = false;
                   esp.line.Visible = false;
+                  esp.gui.Active = false;
+                  esp.esp.Visible = false;
               end
            end
               
