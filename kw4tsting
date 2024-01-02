@@ -142,7 +142,7 @@ function targetesp(targetplr)
             esp.box.Position = newVector2(round(x - width / 2, y - height / 2));
 
             -- tracers (copied over from one of my other scripts so some variables from above aren't used)
-            if lines == true and visible then
+            if lines == true  then
             esp.line.Visible = true;
             esp.line.From = newVector2(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
             esp.line.To = newVector2(position.X, position.Y)
