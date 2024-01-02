@@ -1,4 +1,4 @@
-local version = "v1.0T"
+local version = "1.1T"
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20Command%20UI%20Library/Source.lua', true))()
 
 local Window = Library:CreateWindow({
@@ -74,7 +74,7 @@ function targetesp(targetplr)
  local function createEsp(player)
     local drawings = {};
     
-    drawings.box = newDrawing("Triangle");
+    drawings.box = newDrawing("Circle");
     drawings.box.Thickness = 2;
     drawings.box.Filled = false;
     drawings.box.Color = Color3.fromRGB(0,255,0);
