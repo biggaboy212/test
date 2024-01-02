@@ -1,4 +1,4 @@
-local version = "1.35T"
+local version = "1.4T"
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20Command%20UI%20Library/Source.lua', true))()
 
 local Window = Library:CreateWindow({
@@ -130,7 +130,7 @@ function targetesp(targetplr)
                 Instance = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
             end
             dynamichealthcolor(esp.box.Color)
-            dynamichealthcolor(drawings.line.Color)
+            dynamichealthcolor(esp.line.Color)
             dynamichealthcolor(esp.esp.TextColor3)
  
         if cframe and visible then
