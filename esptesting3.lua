@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals 1.2",
+    Title = "Karpi Visuals 1.1",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -269,7 +269,7 @@ end)
     })
     ESPColorPicker:OnChanged(function()
         print(ESPColorPicker.Value)
-        ESPColor = Color3.new(ESPColorPicker.Value)
+        ESPColor = ESPColorPicker.Value
         print(tostring(ESPColor))
     end)
 
