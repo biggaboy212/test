@@ -13,7 +13,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Visuals = Window:AddTab({ Title = "Visuals", Icon = "" }),
+    Visuals = Window:AddTab({ Title = "Visuals", Icon = "eye" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -22,7 +22,7 @@ local Options = Fluent.Options
 
 -- Variables
 local plr1 = game.Players.LocalPlayer
-local others = game:GetService("Players")
+local others = game:GetService("Players") 
 local esp = false
 local espog = false
 local lines = false
