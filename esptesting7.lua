@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals 1.3",
+    Title = "Karpi Visuals 1.7",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -215,7 +215,7 @@ if TeamCheck and player.TeamColor == plr1.TeamColor then
     esp.box.Visible = false;
     esp.line.Visible = false;
     esp.esp.Visible = false;
-elseif not TeamCheck then 
+elseif not TeamCheck and visible then 
     esp.box.Visible = true;
     esp.line.Visible = true;
     esp.esp.Visible = true;
