@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals 1.1",
+    Title = "Karpi Visuals 1.2",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -21,7 +21,7 @@ local Options = Fluent.Options
 
 local plr1 = game.Players.LocalPlayer
 local others = game:GetService("Players") 
-local esp = false
+local espenabled = false
 local lines = false
 local nametags = false
 local boxes = false
@@ -33,7 +33,7 @@ do
     local ESPToggle = Tabs.Visuals:AddToggle("ESPToggle", {Title = "ESP", Default = false})
 
     ESPToggle:OnChanged(function()
-        esp = Options.ESPToggle.Value
+        espenabled = Options.ESPToggle.Value
     end)
 
     Options.ESPToggle:SetValue(true)
@@ -149,7 +149,8 @@ end
 end
 
 local function updateEsp(player, esp)
-local character = player and player.Character;
+if espenabled then
+    local character = player and player.Character;
 if character then
     local cframe = character:GetModelCFrame();
     local position, visible, depth = wtvp(cframe.Position);
@@ -188,14 +189,13 @@ if character then
         elseif not DynamicColors then
             esp.line.Color = ESPColor
         end
-            end
         elseif not lines then
             esp.line.Visible = false;
         end
 
 
-        --// Nametags
-    if nametags and visible then
+         --// Nametags
+        if nametags and visible then
             esp.esp.Visible = true;
             esp.esp.Text = player.Name.." | Health: "..math.round(character:WaitForChild("Humanoid").Health)
             esp.gui.Parent = character.Head
@@ -203,11 +203,12 @@ if character then
         if DynamicColors then
             esp.esp.TextColor3 = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicColors then
-           esp.esp.TextColor3 = ESPColor
+            esp.esp.TextColor3 = ESPColor
         end
 
-    elseif not nametags then
-        esp.esp.Visible = false;
+        elseif not nametags then
+            esp.esp.Visible = false;
+        end
     end
 
 if TeamCheck and player.TeamColor == plr1.TeamColor then
@@ -220,6 +221,11 @@ elseif not TeamCheck then
     esp.esp.Visible = true;
 end
 else
+    esp.box.Visible = false;
+    esp.line.Visible = false;
+    esp.esp.Visible = false;
+end
+elseif not espenabled then
     esp.box.Visible = false;
     esp.line.Visible = false;
     esp.esp.Visible = false;
