@@ -3,13 +3,13 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals 1.12",
+    Title = "Karpi Visuals 1.75",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
-    Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
+    Acrylic = false,
     Theme = "Darker",
-    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+    MinimizeKey = Enum.KeyCode.LeftControl
 })
 
 local Tabs = {
@@ -19,35 +19,85 @@ local Tabs = {
 
 local Options = Fluent.Options
 
-
--- Variables
 local plr1 = game.Players.LocalPlayer
 local others = game:GetService("Players") 
-local esp = false -- ESP Check
-local lines = false -- Tracers Check
-local nametags = false -- Nametags Check
-local boxes = false -- Boxes Check
+local espenabled = false
+local lines = false
+local nametags = false
+local boxes = false
 local ESPColor = Color3.new(0.5,1,1)
-local DynamicColors = false -- DynamicColors Check
-local TeamCheck = false -- TeamCheck
+local DynamicColors = false
+local TeamCheck = false
 
 do
-
-    -- ESP Color Picker
-
--- ESP Toggle
     local ESPToggle = Tabs.Visuals:AddToggle("ESPToggle", {Title = "ESP", Default = false})
 
     ESPToggle:OnChanged(function()
-        -- initially created by 'mickeyrbx', revamped by biggaboy212
-    esp = Options.ESPToggle.Value
--- services
+        espenabled = Options.ESPToggle.Value
+    end)
+
+    Options.ESPToggle:SetValue(true)
+
+    local BoxesToggle = Tabs.Visuals:AddToggle("BoxesToggle", {Title = "Boxes", Default = false})
+
+    BoxesToggle:OnChanged(function()
+        boxes = Options.BoxesToggle.Value
+    end)
+
+    Options.BoxesToggle:SetValue(true)
+
+    local TracersToggle = Tabs.Visuals:AddToggle("TracersToggle", {Title = "Tracers", Default = false})
+
+    TracersToggle:OnChanged(function()
+        lines = Options.TracersToggle.Value
+    end)
+
+    Options.TracersToggle:SetValue(false)
+
+    local NametagsToggle = Tabs.Visuals:AddToggle("NametagsToggle", {Title = "NameTags", Default = false})
+
+    NametagsToggle:OnChanged(function()
+        nametags = Options.NametagsToggle.Value
+    end)
+
+    Options.NametagsToggle:SetValue(true)
+
+    local DynamicESPColor = Tabs.Visuals:AddToggle("DynamicESPColor", {Title = "Dynamic ESP Health Color", Default = false})
+
+    DynamicESPColor:OnChanged(function()
+        DynamicColors = Options.DynamicESPColor.Value
+    end)
+
+    Options.DynamicESPColor:SetValue(true)
+
+    local TeamCheckToggle = Tabs.Visuals:AddToggle("TeamCheckToggle", {Title = "Team Check", Default = false})
+
+    TeamCheckToggle:OnChanged(function()
+        TeamCheck = Options.TeamCheckToggle.Value
+    end)
+
+    Options.TeamCheckToggle:SetValue(false)
+
+    local ESPColorPicker = Tabs.Visuals:AddColorpicker("ESPColorPicker", {
+        Title = "ESP Color",
+        Default = Color3.fromRGB(255,255,255)
+    })
+
+    ESPColorPicker:OnChanged(function()
+        ESPColor = ESPColorPicker.Value
+    end)
+
+    ESPColorPicker:SetValueRGB(Color3.fromRGB(255,255,255))
+end
+
+
+--// Services
 local runService = game:GetService("RunService");
 
--- variables
+--// Variables
 local camera = workspace.CurrentCamera;
 
--- functions
+--// Functions
 local newVector2, draw = Vector2.new, Drawing.new;
 local tan, rad = math.tan, math.rad;
 local round = function(...) local a = {}; for i,v in next, table.pack(...) do a[i] = math.round(v); end return unpack(a); end;
@@ -99,7 +149,8 @@ end
 end
 
 local function updateEsp(player, esp)
-local character = player and player.Character;
+if espenabled then
+    local character = player and player.Character;
 if character then
     local cframe = character:GetModelCFrame();
     local position, visible, depth = wtvp(cframe.Position);
@@ -108,7 +159,7 @@ if character then
 
     if cframe and visible then
 
-        -- Boxes
+        --// Boxes
         if boxes and visible then
             esp.box.Visible = true;
         local scaleFactor = 1 / (depth * tan(rad(camera.FieldOfView / 2)) * 2) * 1000;
@@ -128,7 +179,7 @@ if character then
         end
 
 
-        -- Tracers (Copied over from one of my other scripts so some variables from above aren't used)
+        --// Tracers (Copied over from one of my other scripts so some variables from above aren't used)
         if lines and visible then
             esp.line.Visible = true;
             esp.line.From = newVector2(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
@@ -138,14 +189,13 @@ if character then
         elseif not DynamicColors then
             esp.line.Color = ESPColor
         end
-            end
         elseif not lines then
             esp.line.Visible = false;
         end
 
 
-        -- Nametags
-    if nametags and visible then
+         --// Nametags
+        if nametags and visible then
             esp.esp.Visible = true;
             esp.esp.Text = player.Name.." | Health: "..math.round(character:WaitForChild("Humanoid").Health)
             esp.gui.Parent = character.Head
@@ -153,18 +203,19 @@ if character then
         if DynamicColors then
             esp.esp.TextColor3 = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicColors then
-           esp.esp.TextColor3 = ESPColor
+            esp.esp.TextColor3 = ESPColor
         end
 
-    elseif not nametags then
-        esp.esp.Visible = false;
+        elseif not nametags then
+            esp.esp.Visible = false;
+        end
     end
 
 if TeamCheck and player.TeamColor == plr1.TeamColor then
     esp.box.Visible = false;
     esp.line.Visible = false;
     esp.esp.Visible = false;
-elseif not TeamCheck then 
+elseif not TeamCheck and visible then 
     esp.box.Visible = true;
     esp.line.Visible = true;
     esp.esp.Visible = true;
@@ -174,26 +225,33 @@ else
     esp.line.Visible = false;
     esp.esp.Visible = false;
 end
+elseif not espenabled then
+    esp.box.Visible = false;
+    esp.line.Visible = false;
+    esp.esp.Visible = false;
+end
 end
 
--- main
+--// Create ESP for existing players
 for _, player in next, others:GetPlayers() do
     if player ~= plr1 then
         createEsp(player);
     end
  end
- 
+
+ --// Create ESP for players joining
  others.PlayerAdded:Connect(function(player)
     createEsp(player);
  end);
  
+ --// Remove ESP for players leaving
  others.PlayerRemoving:Connect(function(player)
     removeEsp(player);
  end)
 
-
-runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
-    if esp == true then
+ --// Update ESP
+ runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
+    if espenabled == true then
    for player, drawings in next, espCache do
        if drawings then
            updateEsp(player, drawings);
@@ -207,72 +265,6 @@ else
      end
 end
 end)
-    end)
-
-    Options.ESPToggle:SetValue(true)
-
-
--- Boxes Toggle
-    local BoxesToggle = Tabs.Visuals:AddToggle("BoxesToggle", {Title = "Boxes", Default = false})
-
-    BoxesToggle:OnChanged(function()
-        boxes = Options.BoxesToggle.Value
-    end)
-
-    Options.BoxesToggle:SetValue(true)
-
-
--- Tracers Toggle
-    local TracersToggle = Tabs.Visuals:AddToggle("TracersToggle", {Title = "Tracers", Default = false})
-
-    TracersToggle:OnChanged(function()
-        lines = Options.TracersToggle.Value
-    end)
-
-    Options.TracersToggle:SetValue(false)
-
-
--- NameTags Toggle
-    local NametagsToggle = Tabs.Visuals:AddToggle("NametagsToggle", {Title = "NameTags", Default = false})
-
-    NametagsToggle:OnChanged(function()
-        nametags = Options.NametagsToggle.Value
-    end)
-
-    Options.NametagsToggle:SetValue(true)
-
-
-    -- Dynamic ESP Color Toggle
-    local DynamicESPColor = Tabs.Visuals:AddToggle("DynamicESPColor", {Title = "Dynamic ESP Health Color", Default = false})
-
-    DynamicESPColor:OnChanged(function()
-        DynamicColors = Options.DynamicESPColor.Value
-    end)
-
-    Options.DynamicESPColor:SetValue(true)
-
-
-     -- TeamCheck Toggle
-     local TeamCheckToggle = Tabs.Visuals:AddToggle("TeamCheckToggle", {Title = "Team Check", Default = false})
-
-     TeamCheckToggle:OnChanged(function()
-         TeamCheck = Options.TeamCheckToggle.Value
-     end)
- 
-     Options.TeamCheckToggle:SetValue(true)
-
-
-     -- ESP Color Picker
-     local ESPColorPicker = Tabs.Main:AddColorpicker("ESPColorPicker", {
-        Title = "ESP Color",
-        Default = Color3.fromRGB(255,255,255)
-    })
-    ESPColorPicker:OnChanged(function()
-        ESPColor = Color3.new(ESPColorPicker.Value)
-    end)
-
-    ESPColorPicker:SetValueRGB(Color3.fromRGB(255,255,255))
-end
 
 InterfaceManager:SetLibrary(Fluent)
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
