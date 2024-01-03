@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals 1.7",
+    Title = "Karpi Visuals 1.75",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -31,19 +31,15 @@ local TeamCheck = false
 
 do
     local ESPToggle = Tabs.Visuals:AddToggle("ESPToggle", {Title = "ESP", Default = false})
-
     ESPToggle:OnChanged(function()
         espenabled = Options.ESPToggle.Value
     end)
-
     Options.ESPToggle:SetValue(true)
 
     local BoxesToggle = Tabs.Visuals:AddToggle("BoxesToggle", {Title = "Boxes", Default = false})
-
     BoxesToggle:OnChanged(function()
         boxes = Options.BoxesToggle.Value
     end)
-
     Options.BoxesToggle:SetValue(true)
 
     local TracersToggle = Tabs.Visuals:AddToggle("TracersToggle", {Title = "Tracers", Default = false})
@@ -76,7 +72,7 @@ do
         TeamCheck = Options.TeamCheckToggle.Value
     end)
 
-    Options.TeamCheckToggle:SetValue(true)
+    Options.TeamCheckToggle:SetValue(false)
 
     local ESPColorPicker = Tabs.Visuals:AddColorpicker("ESPColorPicker", {
         Title = "ESP Color",
@@ -150,6 +146,9 @@ end
 
 local function updateEsp(player, esp)
 if espenabled then
+    esp.box.Visible = true;
+    esp.line.Visible = true;
+    esp.esp.Visible = true;
     local character = player and player.Character;
 if character then
     local cframe = character:GetModelCFrame();
