@@ -197,19 +197,18 @@ Window:AddCommand('ESP', {}, 'Revamped ESP (Load again to disable)', function(Ar
 
             -- Nametags
             if nametags and visible then
-                esp.gui.Active = false;
-                esp.esp.Visible = false;
+                esp.esp.Visible = true;
                 esp.esp.Text = player.Name.." | Health: "..math.round(character:WaitForChild("Humanoid").Health)
                 esp.gui.Parent = character.Head
                 esp.esp.TextColor3 = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
             elseif not nametags then
-                esp.gui.Active = false;
+                esp.esp.Visible = false;
             end
         end
     else
         esp.box.Visible = false;
         esp.line.Visible = false;
-        esp.gui.Active = false;
+        esp.esp.Visible = false;
     end
  end
     
