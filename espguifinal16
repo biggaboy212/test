@@ -161,7 +161,10 @@ if character then
         esp.esp.Visible = false;
     end
 
-
+if TeamCheck and player.TeamColor ~= plr1.TeamColor then
+    esp.box.Visible = false;
+    esp.line.Visible = false;
+    esp.esp.Visible = false;
 else
     esp.box.Visible = false;
     esp.line.Visible = false;
