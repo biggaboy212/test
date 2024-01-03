@@ -256,6 +256,8 @@ end
                 updateEsp(player, drawings)
             end
         end
+    else
+        espCache = {}
     end
 end)
 
