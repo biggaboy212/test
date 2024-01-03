@@ -10,16 +10,16 @@ local VisualsSection = VisualsTab:CreateSection('Visuals')
 -- Variables
 local plr1 = game.Players.LocalPlayer
 local others = game:GetService("Players")
+local esp = false
 local espog = false
 local lines = false
-local nametags = true
-local boxes = true
+local nametags = false
+local boxes = false
 
 -- ESP Toggle
-local ESPToggle = VisualsSection:CreateToggle('ESP', true, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
+local ESPToggle = VisualsSection:CreateToggle('ESP', false, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
      -- initially created by 'mickeyrbx', revamped by me
-     if Value == false then
-        Value = true
+    esp = Value
         if espog == false then
                 -- services
  local runService = game:GetService("RunService");
@@ -144,7 +144,7 @@ local ESPToggle = VisualsSection:CreateToggle('ESP', true, Color3.fromRGB(0, 125
    
     
     runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
-        if Value == true then
+        if esp == true then
        for player, drawings in next, espCache do
            if drawings then
                updateEsp(player, drawings);
@@ -159,9 +159,6 @@ local ESPToggle = VisualsSection:CreateToggle('ESP', true, Color3.fromRGB(0, 125
     end
     end)
         end
-    elseif Value == true then
-        Value = false
-    end
 end)
 
 -- OptionsLable
