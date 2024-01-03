@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals",
+    Title = "Karpi Visuals 1.0",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -24,10 +24,10 @@ local Options = Fluent.Options
 local plr1 = game.Players.LocalPlayer
 local others = game:GetService("Players") 
 local esp = false -- ESP Check
-local espog = false -- Variable to make sure ESP wasn't already enabled any time before in order to reduce lag
 local lines = false -- Tracers Check
 local nametags = false -- Nametags Check
 local boxes = false -- Boxes Check
+local ESPColor = Color3.new(0.5,1,1)
 local DynamicColors = false -- DynamicColors Check
 local TeamCheck = false -- TeamCheck
 
@@ -41,8 +41,7 @@ do
     ESPToggle:OnChanged(function()
         -- initially created by 'mickeyrbx', revamped by biggaboy212
     esp = Options.ESPToggle.Value
-    if espog == false then
-            -- services
+-- services
 local runService = game:GetService("RunService");
 
 -- variables
@@ -121,7 +120,7 @@ if character then
             if DynamicColors then
             esp.box.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth);
             elseif not DynamicColors then
-               esp.box.Color = Color3.fromRGB(255,255,255)
+               esp.box.Color = ESPColor
             end
 
         elseif not boxes then
@@ -137,7 +136,7 @@ if character then
             if DynamicColors then
             esp.line.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicColors then
-            esp.line.Color = Color3.fromRGB(255,255,255)
+            esp.line.Color = ESPColor
         end
             end
         elseif not lines then
@@ -154,7 +153,7 @@ if character then
         if DynamicColors then
             esp.esp.TextColor3 = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicColors then
-           esp.esp.TextColor3 = Color3.fromRGB(255,255,255)
+           esp.esp.TextColor3 = ESPColor
         end
 
     elseif not nametags then
@@ -208,7 +207,6 @@ else
      end
 end
 end)
-    end
     end)
 
     Options.ESPToggle:SetValue(true)
