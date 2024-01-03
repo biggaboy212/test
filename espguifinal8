@@ -29,7 +29,7 @@ local lines = false
 local nametags = false
 local boxes = false
 local DynamicESPColor = false
-local ESPColors = Color3.FromRGB(255,255,255)
+--local ESPColors = Color3.FromRGB(255,255,255)
 
 do
 
@@ -118,7 +118,7 @@ if character then
             if DynamicESPColor then
             esp.box.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth);
             elseif not DynamicESPColor then
-                esp.box.Color = ESPColors
+               -- esp.box.Color = ESPColors
             end
         elseif not boxes then
             esp.box.Visible = false;
@@ -133,7 +133,7 @@ if character then
             if DynamicESPColor then
             esp.line.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicESPColor then
-            esp.line.Color = ESPColors
+            --esp.line.Color = ESPColors
         end
             end
         elseif not lines then
@@ -149,7 +149,7 @@ if character then
             if DynamicESPColor then
             esp.esp.TextColor3 = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicESPColor then
-            esp.box.Color = ESPColors
+           -- esp.box.Color = ESPColors
             end
         elseif not nametags then
             esp.esp.Visible = false;
@@ -249,7 +249,6 @@ local ESPColorpicker = Tabs.Visuals:AddColorpicker("ESPColorpicker", {
 
 ESPColorpicker:OnChanged(function()
     print(ESPColorpicker.Value)
-    ESPColors = ESPColorpicker.Value
 end)
 
 ESPColorpicker:SetValueRGB(Color3.fromRGB(255, 255, 255))
