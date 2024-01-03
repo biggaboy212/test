@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals 1.2",
+    Title = "Karpi Visuals 1.3",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -251,7 +251,7 @@ for _, player in next, others:GetPlayers() do
 
  --// Update ESP
  runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
-    if esp == true then
+    if espenabled == true then
    for player, drawings in next, espCache do
        if drawings then
            updateEsp(player, drawings);
