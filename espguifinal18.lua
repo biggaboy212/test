@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Karpi Visuals 1.0",
+    Title = "Karpi Visuals 1.1",
     SubTitle = "by biggaboy212",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -261,6 +261,17 @@ end)
  
      Options.TeamCheckToggle:SetValue(true)
 
+
+     -- ESP Color Picker
+     local ESPColorPicker = Tabs.Main:AddColorpicker("ESPColorPicker", {
+        Title = "ESP Color",
+        Default = Color3.fromRGB(255,255,255)
+    })
+    ESPColorPicker:OnChanged(function()
+        ESPColor = ESPColorPicker.Value
+    end)
+
+    ESPColorPicker:SetValueRGB(Color3.fromRGB(255,255,255))
 end
 
 InterfaceManager:SetLibrary(Fluent)
