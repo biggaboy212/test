@@ -1,8 +1,9 @@
+local version = "4.199"
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20Command%20UI%20Library/Source.lua', true))()
 
 local Window = Library:CreateWindow({
-    Name = 'Karpi Visuals',
-    IntroText = 'Proton Utilities | KarpiWare Visuals',
+    Name = 'KarpiWare V4',
+    IntroText = 'Proton Utilities | KarpiWare V'..version,
     IntroIcon = 'rbxassetid://0',
     IntroBlur = true,
     IntroBlurIntensity = 15,
@@ -254,10 +255,10 @@ Window:AddCommand('ESP', {}, 'Revamped ESP (Load again to disable)', function(Ar
 
 
  Window:AddCommand('Boxes', {}, 'Enables/Disables Tracer ESP (Must have ESP Enabled)', function(Arguments, Speaker)
-    if lines == false then lines = true elseif lines == true then lines = false end
+    if boxes == false then boxes = true elseif boxes == true then boxes = false end
  end)
  
 
  Window:AddCommand('Names', {}, 'Enables/Disables Tracer ESP (Must have ESP Enabled)', function(Arguments, Speaker)
-    if lines == false then lines = true elseif lines == true then lines = false end
+    if nametags == false then nametags = true elseif nametags == true then nametags = false end
  end)
