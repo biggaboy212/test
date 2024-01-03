@@ -1,122 +1,37 @@
-local version = "4.199"
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20Command%20UI%20Library/Source.lua', true))()
+-- Library Dependencies
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20UI%20Library/Source.lua'))()
 
-local Window = Library:CreateWindow({
-    Name = 'KarpiWare V4',
-    IntroText = 'Proton Utilities | KarpiWare V'..version,
-    IntroIcon = 'rbxassetid://0',
-    IntroBlur = true,
-    IntroBlurIntensity = 15,
-    Theme =  Library.Themes.redandblack,
-    Position = 'Bottom',
-    Draggable = true,
-    Prefix = _G.Prefix
-})
+local KarpiVisuals = Library:CreateWindow('Karpi Visuals', 'Universal', 'Karpi Visuals 1.0', 'rbxassetid://10618928818', false, 'Karpi_Visuals_Config', 'Default')
 
--- variables
-local HttpService = game:GetService("HttpService");
-local file = "karpi_ware_settings.txt";
-local savedtheme = nil
+local VisualsTab = KarpiVisuals:CreateTab('Visuals', true, 'rbxassetid://3926305904', Vector2.new(524, 44), Vector2.new(36, 36))
+
+local VisualsSection = VisualsTab:CreateSection('Visuals')
+
+-- Variables
 local plr1 = game.Players.LocalPlayer
 local others = game:GetService("Players")
 local espog = false
-local esp = false
 local lines = false
 local nametags = true
 local boxes = true
 
-
--- functions
-function load()
-	print("loading sets")
-	if (readfile and isfile and isfile(file)) then
-        print('file found, loading settings')
-		savedtheme = HttpService:JSONDecode(readfile(file));
-		Window:ChangeTheme(savedtheme)
-        Window:CreateNotification('KarpiWare', 'Loaded saved theme')
-	end
-end
-
-function save(tosave)
-    print("saving sets")
-    local json;
-    if (writefile) then
-    json = HttpService:JSONEncode(tosave)
-    writefile(file, json);
-    print("saved sets")
-    else
-        print("writefile function dosen't exist on this executor")
-    end
-end
-
-
-load()
-
-
-Window:AddCommand('ChangeTheme', {'Theme'}, 'Dark, Light, Red, Orange, Purple, Blue', function(Arguments, Speaker)
-    if Arguments[1] == "Dark" then
-        Window:ChangeTheme('dark')
-        save('dark')
-    elseif Arguments[1] == "dark" then
-        Window:ChangeTheme('dark')
-        save('dark')
-    elseif Arguments[1] == "Light" then
-        Window:ChangeTheme('light')
-        save('light')
-    elseif Arguments[1] == "Red" then
-        Window:ChangeTheme('redandblack')
-        save('redandblack')
-    elseif Arguments[1] == "Orange" then
-        Window:ChangeTheme('kiriot')
-        save('kiriot')
-    elseif Arguments[1] == "Purple" then
-        Window:ChangeTheme('purple')
-        save('purple')
-    elseif Arguments[1] == "Blue" then
-        Window:ChangeTheme('scriptware')
-        save('scriptware')
-    elseif Arguments[1] == "light" then
-        Window:ChangeTheme('light')
-        save('light')
-    elseif Arguments[1] == "red" then
-        Window:ChangeTheme('redandblack')
-        save('redandblack')
-    elseif Arguments[1] == "orange" then
-        Window:ChangeTheme('kiriot')
-        save('kiriot')
-    elseif Arguments[1] == "purple" then
-        Window:ChangeTheme('purple')
-        save('purple')
-    elseif Arguments[1] == "blue" then
-        Window:ChangeTheme('scriptware')
-        save('scriptware')
-    end
-end)
-
-
-Window:AddCommand('Discord', {}, 'Copies discord link', function(Arguments, Speaker)
-    setclipboard("https://discord.gg/sbZNGNVdE9")
-    Window:CreateNotification('KarpiWare', 'Copied Discord link')
-end)
-
-Window:AddCommand('ESP', {}, 'Revamped ESP (Load again to disable)', function(Arguments, Speaker)
-    -- initially created by 'mickeyrbx', revamped by me
-    if esp == false then
-        esp = true
+-- ESP Toggle
+local ESPToggle = VisualsSection:CreateToggle('ESP', true, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
+     -- initially created by 'mickeyrbx', revamped by me
+     if Value == false then
+        Value = true
         if espog == false then
                 -- services
  local runService = game:GetService("RunService");
  
  -- variables
  local camera = workspace.CurrentCamera;
- local lasttarg = nil
  
  -- functions
- local newVector2, newColor3, draw = Vector2.new, Color3.new, Drawing.new;
+ local newVector2, draw = Vector2.new, Drawing.new;
  local tan, rad = math.tan, math.rad;
  local round = function(...) local a = {}; for i,v in next, table.pack(...) do a[i] = math.round(v); end return unpack(a); end;
  local wtvp = function(...) local a, b = camera.WorldToViewportPoint(camera, ...) return newVector2(a.X, a.Y), b, a.Z end;
- local wtvptrcrs = camera.WorldToViewportPoint
 
  local espCache = {};
  local function createEsp(player)
@@ -229,7 +144,7 @@ Window:AddCommand('ESP', {}, 'Revamped ESP (Load again to disable)', function(Ar
    
     
     runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
-        if esp == true then
+        if Value == true then
        for player, drawings in next, espCache do
            if drawings then
                updateEsp(player, drawings);
@@ -244,21 +159,25 @@ Window:AddCommand('ESP', {}, 'Revamped ESP (Load again to disable)', function(Ar
     end
     end)
         end
-    elseif esp == true then
-        esp = false
+    elseif Value == true then
+        Value = false
     end
- end)
+end)
 
- Window:AddCommand('Tracers', {}, 'Enables/Disables Tracer ESP (Must have ESP Enabled)', function(Arguments, Speaker)
-    if lines == false then lines = true elseif lines == true then lines = false end
- end)
+-- OptionsLable
+local OptionsLabel = VisualsSection:CreateLabel('Options')
 
+-- Toggle Boxes
+local BoxesToggle = VisualsSection:CreateToggle('Boxes', true, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
+    if Value == false then boxes = true elseif Value == true then boxes = false end
+end)
 
- Window:AddCommand('Boxes', {}, 'Enables/Disables Tracer ESP (Must have ESP Enabled)', function(Arguments, Speaker)
-    if boxes == false then boxes = true elseif boxes == true then boxes = false end
- end)
- 
+-- Toggle Tracers
+local TracersToggle = VisualsSection:CreateToggle('Tracers', false, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
+    if Value == false then lines = true elseif Value == true then lines = false end
+end)
 
- Window:AddCommand('Names', {}, 'Enables/Disables Tracer ESP (Must have ESP Enabled)', function(Arguments, Speaker)
-    if nametags == false then nametags = true elseif nametags == true then nametags = false end
- end)
+-- Toggle Nametags
+local NametagsToggle = VisualsSection:CreateToggle('Nametags', true, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
+    if Value == false then nametags = true elseif Value == true then nametags = false end
+end)
