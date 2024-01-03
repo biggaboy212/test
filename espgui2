@@ -168,16 +168,16 @@ end)
 local OptionsLabel = VisualsSection:CreateLabel('Options')
 
 -- Toggle Boxes
-local BoxesToggle = VisualsSection:CreateToggle('Boxes', true, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
-    if Value == false then boxes = true elseif Value == true then boxes = false end
+local BoxesToggle = VisualsSection:CreateToggle('Boxes', false, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
+    if Value == true then boxes = true elseif Value == false then boxes = false end
 end)
 
 -- Toggle Tracers
 local TracersToggle = VisualsSection:CreateToggle('Tracers', false, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
-    if Value == false then lines = true elseif Value == true then lines = false end
+    if Value == true then lines = true elseif Value == false then lines = false end
 end)
 
 -- Toggle Nametags
-local NametagsToggle = VisualsSection:CreateToggle('Nametags', true, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
-    if Value == false then nametags = true elseif Value == true then nametags = false end
+local NametagsToggle = VisualsSection:CreateToggle('Nametags', false, Color3.fromRGB(0, 125, 255), 0.25, function(Value)
+    if Value == true then nametags = true elseif Value == false then nametags = false end
 end)
