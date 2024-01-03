@@ -23,12 +23,13 @@ local Options = Fluent.Options
 -- Variables
 local plr1 = game.Players.LocalPlayer
 local others = game:GetService("Players") 
-local esp = false
-local espog = false
-local lines = false
-local nametags = false
-local boxes = false
-local DynamicColors = false
+local esp = false -- ESP Check
+local espog = false -- Variable to make sure ESP wasn't already enabled any time before in order to reduce lag
+local lines = false -- Tracers Check
+local nametags = false -- Nametags Check
+local boxes = false -- Boxes Check
+local DynamicColors = false -- DynamicColors Check
+local TeamCheck = false -- TeamCheck
 
 do
 
@@ -188,7 +189,11 @@ runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
     if esp == true then
    for player, drawings in next, espCache do
        if drawings then
-           updateEsp(player, drawings);
+        if TeamCheck and player.TeamColor ~= plr1.TeamColor then
+            updateEsp(player, drawings);
+            elseif not TeamCheck then
+                updateEsp(player, drawings);
+        end
        end
    end
 else 
@@ -243,6 +248,16 @@ end)
     end)
 
     Options.DynamicESPColor:SetValue(true)
+
+
+     -- TeamCheck Toggle
+     local TeamCheckToggle = Tabs.Visuals:AddToggle("TeamCheckToggle", {Title = "Team Check", Default = false})
+
+     TeamCheckToggle:OnChanged(function()
+         TeamCheck = Options.TeamCheckToggle.Value
+     end)
+ 
+     Options.TeamCheckToggle:SetValue(true)
 
 end
 
