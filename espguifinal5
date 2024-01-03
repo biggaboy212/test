@@ -13,7 +13,8 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Main = Window:AddTab({ Title = "Visuals", Icon = "" }),
+    Visuals = Window:AddTab({ Title = "Visuals", Icon = "" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
 local Options = Fluent.Options
@@ -27,11 +28,12 @@ local espog = false
 local lines = false
 local nametags = false
 local boxes = false
+local DynamicESPColor = false
 
 do
 
 -- ESP Toggle
-    local ESPToggle = Tabs.Main:AddToggle("ESPToggle", {Title = "ESP", Default = false})
+    local ESPToggle = Tabs.Visuals:AddToggle("ESPToggle", {Title = "ESP", Default = false})
 
     ESPToggle:OnChanged(function()
         -- initially created by 'mickeyrbx', revamped by biggaboy212
@@ -181,7 +183,7 @@ end)
 
 
 -- Boxes Toggle
-    local BoxesToggle = Tabs.Main:AddToggle("BoxesToggle", {Title = "Boxes", Default = false})
+    local BoxesToggle = Tabs.Visuals:AddToggle("BoxesToggle", {Title = "Boxes", Default = false})
 
     BoxesToggle:OnChanged(function()
         boxes = Options.BoxesToggle.Value
@@ -191,7 +193,7 @@ end)
 
 
 -- Tracers Toggle
-    local TracersToggle = Tabs.Main:AddToggle("TracersToggle", {Title = "Tracers", Default = false})
+    local TracersToggle = Tabs.Visuals:AddToggle("TracersToggle", {Title = "Tracers", Default = false})
 
     TracersToggle:OnChanged(function()
         lines = Options.TracersToggle.Value
@@ -201,7 +203,7 @@ end)
 
 
 -- NameTags Toggle
-    local NametagsToggle = Tabs.Main:AddToggle("NametagsToggle", {Title = "NameTags", Default = false})
+    local NametagsToggle = Tabs.Visuals:AddToggle("NametagsToggle", {Title = "NameTags", Default = false})
 
     NametagsToggle:OnChanged(function()
         nametags = Options.NametagsToggle.Value
@@ -209,3 +211,7 @@ end)
 
     Options.NametagsToggle:SetValue(true)
 end
+
+InterfaceManager:SetLibrary(Fluent)
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+Window:SelectTab(1)
