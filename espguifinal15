@@ -189,11 +189,7 @@ runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
     if esp == true then
    for player, drawings in next, espCache do
        if drawings then
-        if TeamCheck and player.TeamColor ~= plr1.TeamColor then
-            updateEsp(player, drawings);
-            elseif not TeamCheck then
-                updateEsp(player, drawings);
-        end
+           updateEsp(player, drawings);
        end
    end
 else 
