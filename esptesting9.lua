@@ -234,9 +234,9 @@ end
 --// Create ESP for existing players
 for _, player in next, others:GetPlayers() do
     if player ~= plr1 then
-        createEsp(player);
+        createEsp(player)
     end
- end
+end
 
  --// Create ESP for players joining
  others.PlayerAdded:Connect(function(player)
@@ -250,19 +250,13 @@ for _, player in next, others:GetPlayers() do
 
  --// Update ESP
  runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
-    if espenabled == true then
-   for player, drawings in next, espCache do
-       if drawings then
-           updateEsp(player, drawings);
-       end
-   end
-else 
-    for _, player in next, others:GetPlayers() do
-        if player ~= plr1 then
-            removeEsp(player)
+    if espenabled then
+        for player, drawings in next, espCache do
+            if drawings then
+                updateEsp(player, drawings)
+            end
         end
-     end
-end
+    end
 end)
 
 InterfaceManager:SetLibrary(Fluent)
