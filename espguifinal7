@@ -29,6 +29,7 @@ local lines = false
 local nametags = false
 local boxes = false
 local DynamicESPColor = false
+local ESPColors = Color3.FromRGB(255,255,255)
 
 do
 
@@ -105,6 +106,7 @@ if character then
         esp.line.Visible = visible;
 
     if cframe and visible then
+
         -- Boxes
         if boxes and visible then
             esp.box.Visible = true;
@@ -113,31 +115,47 @@ if character then
         local x, y = round(position.X, position.Y);
             esp.box.Size = newVector2(width, height);
             esp.box.Position = newVector2(round(x - width / 2, y - height / 2));
+            if DynamicESPColor then
             esp.box.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth);
+            elseif not DynamicESPColor then
+                esp.box.Color = ESPColors
+            end
         elseif not boxes then
             esp.box.Visible = false;
         end
+
 
         -- Tracers (Copied over from one of my other scripts so some variables from above aren't used)
         if lines and visible then
             esp.line.Visible = true;
             esp.line.From = newVector2(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
             esp.line.To = newVector2(position.X, position.Y)
+            if DynamicESPColor then
             esp.line.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
+        elseif not DynamicESPColor then
+            esp.line.Color = ESPColors
+        end
+            end
         elseif not lines then
             esp.line.Visible = false;
         end
+
 
         -- Nametags
         if nametags and visible then
             esp.esp.Visible = true;
             esp.esp.Text = player.Name.." | Health: "..math.round(character:WaitForChild("Humanoid").Health)
             esp.gui.Parent = character.Head
+            if DynamicESPColor then
             esp.esp.TextColor3 = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
+        elseif not DynamicESPColor then
+            esp.box.Color = ESPColors
+            end
         elseif not nametags then
             esp.esp.Visible = false;
-        end
     end
+
+
 else
     esp.box.Visible = false;
     esp.line.Visible = false;
@@ -210,7 +228,31 @@ end)
     end)
 
     Options.NametagsToggle:SetValue(true)
+
+
+    -- Dynamic ESP Color Toggle
+    local DynamicESPColor = Tabs.Visuals:AddToggle("DynamicESPColor", {Title = "Dynamic ESP Health Color", Default = false})
+
+    DynamicESPColor:OnChanged(function()
+        DynamicESPColor = Options.DynamicESPColor.Value
+    end)
+
+    Options.DynamicESPColor:SetValue(true)
 end
+
+
+-- ESP Color Picker
+local ESPColorpicker = Tabs.Visuals:AddColorpicker("ESPColorpicker", {
+    Title = "ESP Color",
+    Default = Color3.fromRGB(255, 255, 255)
+})
+
+ESPColorpicker:OnChanged(function()
+    print(ESPColorpicker.Value)
+    ESPColors = ESPColorpicker.Value
+end)
+
+ESPColorpicker:SetValueRGB(Color3.fromRGB(255, 255, 255))
 
 InterfaceManager:SetLibrary(Fluent)
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
