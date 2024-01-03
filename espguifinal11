@@ -33,6 +33,12 @@ local ColorValue
 
 do
 
+    -- ESP Color Picker
+local ESPColorpicker = Tabs.Visuals:AddColorpicker("ESPColorpicker", {
+    Title = "ESP Color",
+    Default = Color3.fromRGB(255, 255, 255)
+})
+
 -- ESP Toggle
     local ESPToggle = Tabs.Visuals:AddToggle("ESPToggle", {Title = "ESP", Default = false})
 
@@ -118,7 +124,7 @@ if character then
             if DynamicESPColor then
             esp.box.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth);
             elseif not DynamicESPColor then
-               esp.box.Color = Color3.new(ColorValue)
+               esp.box.Color = Color3.new(ESPColorpicker.Value)
             end
         elseif not boxes then
             esp.box.Visible = false;
@@ -133,7 +139,7 @@ if character then
             if DynamicESPColor then
             esp.line.Color = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicESPColor then
-            esp.line.Color = Color3.new(ColorValue)
+            esp.line.Color = Color3.new(ESPColorpicker.Value)
         end
             end
         elseif not lines then
@@ -149,7 +155,7 @@ if character then
             if DynamicESPColor then
             esp.esp.TextColor3 = Color3.new(1, 0, 0):Lerp(Color3.new(0, 1, 0), character.Humanoid.Health / character.Humanoid.MaxHealth)
         elseif not DynamicESPColor then
-           esp.box.Color = Color3.new(ColorValue)
+           esp.box.Color = Color3.new(ESPColorpicker.Value)
             end
         elseif not nametags then
             esp.esp.Visible = false;
@@ -238,18 +244,8 @@ end)
     end)
 
     Options.DynamicESPColor:SetValue(true)
+
 end
-
-
--- ESP Color Picker
-local ESPColorpicker = Tabs.Visuals:AddColorpicker("ESPColorpicker", {
-    Title = "ESP Color",
-    Default = Color3.fromRGB(255, 255, 255)
-})
-
-ESPColorpicker:OnChanged(function()
-    ColorValue = ESPColorpicker.Value
-end)
 
 ESPColorpicker:SetValueRGB(Color3.fromRGB(255, 255, 255))
 
