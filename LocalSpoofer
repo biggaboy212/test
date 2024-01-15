@@ -1,0 +1,10 @@
+local SpoofedPart = {}
+for _,v in pairs(game:GetDescendants()) do
+    local Spoof = Instance.new("Part")
+    Spoof.Name = v.Name
+    Spoof.Parent = v.Parent
+    table.insert(SpoofedPart, Spoof)
+end
+for _,v in pairs(SpoofedPart) do
+    v:Destroy()
+end
