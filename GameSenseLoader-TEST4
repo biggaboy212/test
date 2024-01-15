@@ -1,19 +1,16 @@
 task.wait()
 local Done = false
 local DoneMsg = "Loading GameSense."
+local Games = {
+    RawGameLink1 = "https://",
+    RawGameLink2 = "https://",
+    RawGameLink3 = "https://"
+}
 
 local LoadPosition = 1
 
 -- Spoofer
-local SpoofedPart = {}
-for _,v in pairs(game:GetDescendants()) do
-    local Spoof = Instance.new("Part")
-    Spoof.Name = v.Name
-    table.insert(SpoofedPart, Spoof)
-end
-for _,v in pairs(SpoofedPart) do
-    v:Destroy()
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/LocalSpoofer"))()
 
 -- Library start
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/212-s-Notification-Library/main/Testing%20stuff/TestingSourceV1"))()
