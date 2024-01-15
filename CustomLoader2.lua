@@ -1,5 +1,5 @@
 task.wait()
-local Name = "KarpiHub"
+local Name = "Helios"
 local Starting = true
 local detectedgame = false
 local CurrentID = game.PlaceId
@@ -31,7 +31,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main
 -- Library start
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/212-s-Notification-Library/main/Testing%20stuff/TestingSourceV1"))()
 
-library:CreateAdminNotification(16, "CenterThenBottom", Name, StartMsg, false, false, "Ok", 50,200,50, true, 15)
+library:CreateAdminNotification(16, "CenterThenBottom", Name .. ' Loader', StartMsg, false, false, "Ok", 50,200,50, true, 15)
 
 -- IntroStarting
 task.wait(3)
@@ -57,11 +57,11 @@ coroutine.wrap(function()
         local r, g, b = math.round((c.R * 255) + 0.5), math.round((c.G * 255) + 0.5), math.round((c.B * 255) + 0.5)
         if not Starting then
             if LoadPosition == 1 then
-                library:UpdateNotifications("GameSense", "Loading ".. Name ..".", false, r, g, b)
+                library:UpdateNotifications(Name .. ' Loader', "Loading ".. Name ..".", false, r, g, b)
             elseif LoadPosition == 2 then
-                library:UpdateNotifications("GameSense", "Loading ".. Name .."..", false, r, g, b)
+                library:UpdateNotifications(Name .. ' Loader', "Loading ".. Name .."..", false, r, g, b)
             elseif LoadPosition == 3 then
-                library:UpdateNotifications("GameSense", "Loading ".. Name .."...", false, r, g, b)
+                library:UpdateNotifications(Name .. ' Loader', "Loading ".. Name .."...", false, r, g, b)
             end
         end
     end)
@@ -74,5 +74,5 @@ if CurrentID == Games.KAT then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/kattest2"))()
 elseif CurrentID == Games.Dahood then
     _G.Prefix = ";"
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/KarpiWare/main/karpiwarev4src.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/KarpiWare/main/TestSource/KWv4%20PreRelease1"))()
 end
