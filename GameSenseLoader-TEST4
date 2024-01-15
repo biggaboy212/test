@@ -50,7 +50,6 @@ coroutine.resume(coroutine.create(function()
                 library:UpdateNotifications("GameSense", "Loading GameSense...", false, r, g, b)
             end
         else
-            print('done')
                 library:UpdateNotifications("GameSense", DoneMsg, false, r, g, b)
         end
     end)
