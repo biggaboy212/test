@@ -1,13 +1,22 @@
 task.wait()
-local Done = false
-local DoneMsg = "Loading GameSense."
+local Starting = true
+local CurrentID = game.PlaceId
+local StartMsg = game:GetService("MarketplaceService"):GetProductInfo(CurrentID).Name
+local RunService = game:GetService("RunService")
+local LP = game:GetService("Players").LocalPlayer
+local camera = workspace.CurrentCamera;
 local Games = {
-    RawGameLink1 = "https://",
-    RawGameLink2 = "https://",
-    RawGameLink3 = "https://"
+    KAT = 621129760,
+    Dahood = 2788229376
 }
 
-local LoadPosition = 1
+for _,v in pairs(Games) do
+    if CurrentID ~= v then
+        StartMsg = "Universal"
+    end
+end
+
+local LoadPosition = 0
 
 -- Spoofer
 loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/LocalSpoofer"))()
@@ -15,12 +24,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main
 -- Library start
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/212-s-Notification-Library/main/Testing%20stuff/TestingSourceV1"))()
 
-library:CreateAdminNotification(16, "CenterThenBottom", "", "", false, false, "Ok", 50,200,50, true, 15)
+library:CreateAdminNotification(16, "CenterThenBottom", "GameSense", StartMsg, false, false, "Ok", 50,200,50, true, 15)
 
 -- IntroStarting
-library:UpdateNotifications("GameSense", "Loading GameSense.", false, 50,200,50)
+task.wait(3)
+Starting = false
 coroutine.resume(coroutine.create(function()
-    for _ = 1,6 do
+    for i = 1,5 do
         LoadPosition = 1
         task.wait(0.7)
         LoadPosition = 2
@@ -31,17 +41,14 @@ coroutine.resume(coroutine.create(function()
 end))
 
 -- Rainbow effect
-coroutine.resume(coroutine.create(function()
+coroutine.wrap(function()
     local tick = tick
     local fromHSV = Color3.fromHSV
-    local RunService = game:GetService("RunService")
-    
-    RunService:BindToRenderStep("Rainbow", 1000, function()
+    RunService.RenderStepped:Connect(function()
         local h = tick() % 4 / 4
         local c = fromHSV(h, 1, 1)
         local r, g, b = math.round((c.R * 255) + 0.5), math.round((c.G * 255) + 0.5), math.round((c.B * 255) + 0.5)
-        
-        if not Done then
+        if not Starting then
             if LoadPosition == 1 then
                 library:UpdateNotifications("GameSense", "Loading GameSense.", false, r, g, b)
             elseif LoadPosition == 2 then
@@ -49,12 +56,16 @@ coroutine.resume(coroutine.create(function()
             elseif LoadPosition == 3 then
                 library:UpdateNotifications("GameSense", "Loading GameSense...", false, r, g, b)
             end
-        else
-                library:UpdateNotifications("GameSense", DoneMsg, false, r, g, b)
         end
     end)
-end))
+end)()
 
-task.wait(13)
-DoneMsg = "GameSense Loaded!"
-Done = true
+task.wait(5)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/ESP"))()
+
+if CurrentID == Games.KAT then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/kattest2"))()
+elseif CurrentID == game.Dahood then
+    _G.Prefix = ";"
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/KarpiWare/main/karpiwarev4src.lua"))()
+end
