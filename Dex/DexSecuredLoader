@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/CloneRef.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/Dex/Depend1", true))()
 
 -- Dex Bypasses
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/Bypasses.lua", true))()
