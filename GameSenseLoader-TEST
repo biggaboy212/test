@@ -1,0 +1,60 @@
+task.wait()
+local Done = false
+
+local LoadPosition = 1
+
+-- Spoofer
+local SpoofedPart = {}
+for _,v in pairs(game:GetDescendants()) do
+    local Spoof = Instance.new("Part")
+    Spoof.Name = v.Name
+    table.insert(SpoofedPart, Spoof)
+end
+for _,v in pairs(SpoofedPart) do
+    v:Destroy()
+end
+
+-- Library start
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/212-s-Notification-Library/main/Testing%20stuff/TestingSourceV1"))()
+
+library:CreateAdminNotification(16, "CenterThenBottom", "", "", false, false, "Ok", 50,200,50, true, 15)
+
+-- IntroStarting
+coroutine.resume(coroutine.create(function()
+    for _ = 1,6 do
+        LoadPosition = 1
+        task.wait(0.7)
+        LoadPosition = 2
+        task.wait(0.7)
+        LoadPosition = 3
+        task.wait(0.7)
+    end
+end))
+
+-- Rainbow effect
+coroutine.resume(coroutine.create(function()
+    local tick = tick
+    local fromHSV = Color3.fromHSV
+    local RunService = game:GetService("RunService")
+    
+    RunService:BindToRenderStep("Rainbow", 1000, function()
+        local h = tick() % 4 / 4
+        local c = fromHSV(h, 1, 1)
+        local r, g, b = math.round((c.R * 255) + 0.5), math.round((c.G * 255) + 0.5), math.round((c.B * 255) + 0.5)
+        if not Done then
+            if LoadPosition == 1 then
+                library:UpdateNotifications("GameSense", "Loading GameSense.", false, r, g, b)
+            elseif  LoadPosition == 2 then
+                library:UpdateNotifications("GameSense", "Loading GameSense..", false, r, g, b)
+            elseif LoadPosition == 3 then
+                library:UpdateNotifications("GameSense", "Loading GameSense...", false, r, g, b)
+            end
+        elseif Done then
+            library:UpdateNotifications("GameSense", "GameSense Loaded!", false, r, g, b)
+        end
+    end)
+end))
+
+
+task.wait(13)
+Done = true
