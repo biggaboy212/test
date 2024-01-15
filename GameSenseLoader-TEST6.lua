@@ -1,5 +1,6 @@
 task.wait()
 local Starting = true
+local detectedgame = false
 local CurrentID = game.PlaceId
 local StartMsg = game:GetService("MarketplaceService"):GetProductInfo(CurrentID).Name
 local RunService = game:GetService("RunService")
@@ -11,9 +12,14 @@ local Games = {
 }
 
 for _,v in pairs(Games) do
-    if CurrentID ~= v then
-        StartMsg = "Universal"
+    if CurrentID == v then
+        detectedgame = true
+        break
     end
+end
+
+if not detectedgame then
+    StartMsg = "Universal"
 end
 
 local LoadPosition = 0
