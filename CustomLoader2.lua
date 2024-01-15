@@ -72,7 +72,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main
 
 if CurrentID == Games.KAT then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/kattest2"))()
-elseif CurrentID == game.Dahood then
+elseif CurrentID == Games.Dahood then
     _G.Prefix = ";"
     loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/KarpiWare/main/karpiwarev4src.lua"))()
 end
