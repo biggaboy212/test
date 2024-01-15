@@ -49,7 +49,7 @@ coroutine.resume(coroutine.create(function()
             elseif LoadPosition == 3 then
                 library:UpdateNotifications("GameSense", "Loading GameSense...", false, r, g, b)
             end
-        elseif Done then
+        elseif Done and LoadPosition == 0 then
             library:UpdateNotifications("GameSense", "GameSense Loaded!", false, r, g, b)
         end
     end)
@@ -58,3 +58,4 @@ end))
 
 task.wait(13)
 Done = true
+LoadPosition = 0
