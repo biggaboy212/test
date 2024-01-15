@@ -1,0 +1,2 @@
+-- imported to my github in case of deletion
+loadstring(game:HttpGet("https://raw.githubusercontent.com/biggaboy212/test/main/Dex/DexSecuredLoader"))()
