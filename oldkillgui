@@ -1,0 +1,672 @@
+-- Redistributed by the best game cheats source - Cheat.gg
+
+
+
+local FusionV2 = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local bar1 = Instance.new("Frame")
+local bar2 = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local Player = Instance.new("TextBox")
+local Frame = Instance.new("Frame")
+local line4 = Instance.new("Frame")
+local Kill = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local loadfaded = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local TextLabel_4 = Instance.new("TextLabel")
+local Maintab = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local LogIn = Instance.new("ScreenGui")
+local Main_2 = Instance.new("Frame")
+local TopBar = Instance.new("Frame")
+local Heading = Instance.new("TextLabel")
+local Login = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local Cancel = Instance.new("TextButton")
+local Account = Instance.new("ImageButton")
+local Key = Instance.new("TextBox")
+local Frame_2 = Instance.new("Frame")
+local line4_2 = Instance.new("Frame")
+local Notification = Instance.new("Frame")
+local NotifFrame = Instance.new("Frame")
+local Ok = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Heading_2 = Instance.new("TextLabel")
+local SubHeading = Instance.new("TextLabel")
+local TopBar_2 = Instance.new("Frame")
+local BottomBar = Instance.new("Frame")
+
+--Properties:
+
+FusionV2.Name = "FusionV2"
+FusionV2.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+FusionV2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+FusionV2.ResetOnSpawn = false
+
+Main.Name = "Main"
+Main.Parent = FusionV2
+Main.AnchorPoint = Vector2.new(0.5, 0.5)
+Main.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.5, 0, 0.5, 0)
+Main.Size = UDim2.new(0, 600, 0, 350)
+
+bar1.Name = "bar1"
+bar1.Parent = Main
+bar1.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+bar1.BorderSizePixel = 0
+bar1.Position = UDim2.new(0.000833333354, 0, 0, 0)
+bar1.Size = UDim2.new(0, 599, 0, 18)
+
+bar2.Name = "bar2"
+bar2.Parent = bar1
+bar2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+bar2.BorderSizePixel = 0
+bar2.Position = UDim2.new(0.000833333354, 0, 0.995872974, 0)
+bar2.Size = UDim2.new(0, 599, 0, 40)
+
+TextLabel.Parent = bar1
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.00834724586, 0, 0.055555556, 0)
+TextLabel.Size = UDim2.new(0, 195, 0, 16)
+TextLabel.Font = Enum.Font.Gotham
+TextLabel.Text = "FusionV2"
+TextLabel.TextColor3 = Color3.fromRGB(226, 226, 226)
+TextLabel.TextSize = 12.000
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+TextLabel_2.Parent = bar1
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.981636047, 0, 0.0555555224, 0)
+TextLabel_2.Size = UDim2.new(0, 11, 0, 16)
+TextLabel_2.Font = Enum.Font.Gotham
+TextLabel_2.Text = "X"
+TextLabel_2.TextColor3 = Color3.fromRGB(226, 226, 226)
+TextLabel_2.TextSize = 12.000
+TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+TextLabel_3.Parent = bar1
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.951585948, 0, 0.0555555224, 0)
+TextLabel_3.Size = UDim2.new(0, 11, 0, 16)
+TextLabel_3.Font = Enum.Font.Gotham
+TextLabel_3.Text = "-"
+TextLabel_3.TextColor3 = Color3.fromRGB(226, 226, 226)
+TextLabel_3.TextSize = 12.000
+TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+Player.Name = "Player"
+Player.Parent = Main
+Player.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Player.BackgroundTransparency = 1.000
+Player.BorderSizePixel = 0
+Player.Position = UDim2.new(0.0799999982, 0, 0.200000003, 0)
+Player.Size = UDim2.new(0, 432, 0, 31)
+Player.ZIndex = 1000
+Player.Font = Enum.Font.GothamMedium
+Player.PlaceholderColor3 = Color3.fromRGB(125, 125, 125)
+Player.PlaceholderText = "Player (no display name)"
+Player.Text = ""
+Player.TextColor3 = Color3.fromRGB(125, 125, 125)
+Player.TextSize = 18.000
+Player.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame.Parent = Player
+Frame.BackgroundColor3 = Color3.fromRGB(175, 175, 175)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 1, 0)
+Frame.Size = UDim2.new(0, 410, 0, 1)
+Frame.ZIndex = 10000
+
+line4.Name = "line4"
+line4.Parent = Player
+line4.BackgroundColor3 = Color3.fromRGB(0, 141, 248)
+line4.BackgroundTransparency = 1.000
+line4.BorderSizePixel = 0
+line4.Position = UDim2.new(0, 0, 1, 0)
+line4.Size = UDim2.new(0, 410, 0, 2)
+line4.ZIndex = 10000
+
+Kill.Name = "Kill"
+Kill.Parent = Main
+Kill.BackgroundColor3 = Color3.fromRGB(223, 93, 0)
+Kill.BackgroundTransparency = 0.900
+Kill.BorderSizePixel = 0
+Kill.Position = UDim2.new(0.734969497, 0, 0.863259494, 0)
+Kill.Size = UDim2.new(0, 140, 0, 36)
+Kill.ZIndex = 101
+Kill.AutoButtonColor = false
+Kill.Font = Enum.Font.GothamMedium
+Kill.Text = "Kill"
+Kill.TextColor3 = Color3.fromRGB(223, 93, 0)
+Kill.TextSize = 18.000
+
+UICorner.CornerRadius = UDim.new(0, 7)
+UICorner.Parent = Kill
+
+loadfaded.Name = "load faded"
+loadfaded.Parent = Main
+loadfaded.BackgroundColor3 = Color3.fromRGB(223, 93, 0)
+loadfaded.BackgroundTransparency = 0.900
+loadfaded.BorderSizePixel = 0
+loadfaded.Position = UDim2.new(0.0799695253, 0, 0.3518309, 0)
+loadfaded.Size = UDim2.new(0, 140, 0, 36)
+loadfaded.ZIndex = 101
+loadfaded.AutoButtonColor = false
+loadfaded.Font = Enum.Font.GothamMedium
+loadfaded.Text = "Load Faded"
+loadfaded.TextColor3 = Color3.fromRGB(223, 93, 0)
+loadfaded.TextSize = 18.000
+
+UICorner_2.CornerRadius = UDim.new(0, 7)
+UICorner_2.Parent = loadfaded
+
+TextLabel_4.Parent = Main
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.Position = UDim2.new(0.348347276, 0, 0.369841307, 0)
+TextLabel_4.Size = UDim2.new(0, 334, 0, 47)
+TextLabel_4.Font = Enum.Font.Gotham
+TextLabel_4.Text = "- i dont know how to make a reach script nor could i find a good one, so load the faded gui and enable reach (in combat tab)"
+TextLabel_4.TextColor3 = Color3.fromRGB(226, 226, 226)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 12.000
+TextLabel_4.TextWrapped = true
+TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+Maintab.Name = "Maintab"
+Maintab.Parent = Main
+Maintab.BackgroundColor3 = Color3.fromRGB(223, 223, 223)
+Maintab.BackgroundTransparency = 0.900
+Maintab.BorderSizePixel = 0
+Maintab.Position = UDim2.new(0.0383028239, 0, 0.077545166, 0)
+Maintab.Size = UDim2.new(0, 140, 0, 21)
+Maintab.ZIndex = 101
+Maintab.AutoButtonColor = false
+Maintab.Font = Enum.Font.GothamMedium
+Maintab.Text = "Main"
+Maintab.TextColor3 = Color3.fromRGB(188, 188, 188)
+Maintab.TextSize = 15.000
+
+UICorner_3.CornerRadius = UDim.new(0, 7)
+UICorner_3.Parent = Maintab
+
+LogIn.Name = "Log In"
+LogIn.Parent = FusionV2
+LogIn.Enabled = false
+LogIn.ResetOnSpawn = false
+
+Main_2.Name = "Main"
+Main_2.Parent = LogIn
+Main_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Main_2.BackgroundColor3 = Color3.fromRGB(245, 245, 245)
+Main_2.BorderSizePixel = 0
+Main_2.ClipsDescendants = true
+Main_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+Main_2.Size = UDim2.new(0, 547, 0, 208)
+Main_2.ZIndex = 2
+
+TopBar.Name = "TopBar"
+TopBar.Parent = Main_2
+TopBar.BackgroundColor3 = Color3.fromRGB(0, 141, 248)
+TopBar.BorderSizePixel = 0
+TopBar.Size = UDim2.new(0, 547, 0, 4)
+TopBar.ZIndex = 100
+
+Heading.Name = "Heading"
+Heading.Parent = Main_2
+Heading.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Heading.BackgroundTransparency = 1.000
+Heading.Position = UDim2.new(0.12797074, 0, 0.115573369, 0)
+Heading.Size = UDim2.new(0, 424, 0, 50)
+Heading.ZIndex = 100
+Heading.Font = Enum.Font.GothamMedium
+Heading.Text = "Key System"
+Heading.TextColor3 = Color3.fromRGB(67, 67, 67)
+Heading.TextSize = 24.000
+Heading.TextXAlignment = Enum.TextXAlignment.Left
+
+Login.Name = "Login"
+Login.Parent = Main_2
+Login.BackgroundColor3 = Color3.fromRGB(0, 141, 248)
+Login.BackgroundTransparency = 0.900
+Login.BorderSizePixel = 0
+Login.Position = UDim2.new(0.716636181, 0, 0.746116638, 0)
+Login.Size = UDim2.new(0, 140, 0, 36)
+Login.ZIndex = 101
+Login.AutoButtonColor = false
+Login.Font = Enum.Font.GothamMedium
+Login.Text = "Check Key"
+Login.TextColor3 = Color3.fromRGB(0, 141, 248)
+Login.TextSize = 18.000
+
+UICorner_4.CornerRadius = UDim.new(0, 7)
+UICorner_4.Parent = Login
+
+Cancel.Name = "Cancel"
+Cancel.Parent = Main_2
+Cancel.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Cancel.BackgroundTransparency = 1.000
+Cancel.BorderSizePixel = 0
+Cancel.Position = UDim2.new(0.515539348, 0, 0.746116638, 0)
+Cancel.Size = UDim2.new(0, 96, 0, 36)
+Cancel.ZIndex = 101
+Cancel.AutoButtonColor = false
+Cancel.Font = Enum.Font.GothamMedium
+Cancel.Text = "Cancel"
+Cancel.TextColor3 = Color3.fromRGB(67, 67, 67)
+Cancel.TextSize = 18.000
+
+Account.Name = "Account"
+Account.Parent = Main_2
+Account.BackgroundColor3 = Color3.fromRGB(0, 141, 248)
+Account.BackgroundTransparency = 1.000
+Account.LayoutOrder = 13
+Account.Position = UDim2.new(0.038391225, 0, 0.155241251, 0)
+Account.Size = UDim2.new(0, 38, 0, 38)
+Account.ZIndex = 100001
+Account.Image = "rbxassetid://3926307971"
+Account.ImageColor3 = Color3.fromRGB(0, 141, 248)
+Account.ImageRectOffset = Vector2.new(124, 204)
+Account.ImageRectSize = Vector2.new(36, 36)
+
+Key.Name = "Key"
+Key.Parent = Main_2
+Key.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Key.BackgroundTransparency = 1.000
+Key.BorderSizePixel = 0
+Key.Position = UDim2.new(0.1535649, 0, 0.400000006, 0)
+Key.Size = UDim2.new(0, 432, 0, 31)
+Key.ZIndex = 1000
+Key.Font = Enum.Font.GothamMedium
+Key.PlaceholderText = "Key"
+Key.Text = ""
+Key.TextColor3 = Color3.fromRGB(125, 125, 125)
+Key.TextSize = 18.000
+Key.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame_2.Parent = Key
+Frame_2.BackgroundColor3 = Color3.fromRGB(175, 175, 175)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0, 0, 1, 0)
+Frame_2.Size = UDim2.new(0, 410, 0, 1)
+Frame_2.ZIndex = 10000
+
+line4_2.Name = "line4"
+line4_2.Parent = Key
+line4_2.BackgroundColor3 = Color3.fromRGB(0, 141, 248)
+line4_2.BackgroundTransparency = 1.000
+line4_2.BorderSizePixel = 0
+line4_2.Position = UDim2.new(0, 0, 1, 0)
+line4_2.Size = UDim2.new(0, 410, 0, 2)
+line4_2.ZIndex = 10000
+
+Notification.Name = "Notification"
+Notification.Parent = Main_2
+Notification.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Notification.BackgroundTransparency = 1.000
+Notification.BorderSizePixel = 0
+Notification.Position = UDim2.new(-0.000734765083, 0, -0.000210541941, 0)
+Notification.Size = UDim2.new(0, 547, 0, 214)
+Notification.ZIndex = 999999999
+
+NotifFrame.Name = "NotifFrame"
+NotifFrame.Parent = Notification
+NotifFrame.BackgroundColor3 = Color3.fromRGB(230, 230, 230)
+NotifFrame.BorderSizePixel = 0
+NotifFrame.Position = UDim2.new(0.023765998, 0, 1.01284039, 0)
+NotifFrame.Size = UDim2.new(0, 520, 0, 66)
+NotifFrame.ZIndex = 999999999
+
+Ok.Name = "Ok"
+Ok.Parent = NotifFrame
+Ok.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+Ok.BackgroundTransparency = 0.900
+Ok.BorderSizePixel = 0
+Ok.Position = UDim2.new(0.68363452, 0, 0.260007083, 0)
+Ok.Size = UDim2.new(0, 140, 0, 30)
+Ok.ZIndex = 999999999
+Ok.AutoButtonColor = false
+Ok.Font = Enum.Font.GothamMedium
+Ok.Text = "OK"
+Ok.TextColor3 = Color3.fromRGB(67, 67, 67)
+Ok.TextSize = 18.000
+
+UICorner_5.CornerRadius = UDim.new(0, 7)
+UICorner_5.Parent = Ok
+
+Heading_2.Name = "Heading"
+Heading_2.Parent = NotifFrame
+Heading_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Heading_2.BackgroundTransparency = 1.000
+Heading_2.Position = UDim2.new(0, 9, 0, 11)
+Heading_2.Size = UDim2.new(0, 325, 0, 24)
+Heading_2.ZIndex = 999999999
+Heading_2.Font = Enum.Font.GothamMedium
+Heading_2.Text = "Notification"
+Heading_2.TextColor3 = Color3.fromRGB(67, 67, 67)
+Heading_2.TextSize = 20.000
+Heading_2.TextXAlignment = Enum.TextXAlignment.Left
+Heading_2.TextYAlignment = Enum.TextYAlignment.Top
+
+SubHeading.Name = "SubHeading"
+SubHeading.Parent = Heading_2
+SubHeading.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SubHeading.BackgroundTransparency = 1.000
+SubHeading.Position = UDim2.new(0, 0, 1, 2)
+SubHeading.Size = UDim2.new(0, 324, 0, 24)
+SubHeading.ZIndex = 999999999
+SubHeading.Font = Enum.Font.GothamMedium
+SubHeading.Text = "Key system down, press \"OK\" to load the GUI"
+SubHeading.TextColor3 = Color3.fromRGB(125, 125, 125)
+SubHeading.TextSize = 15.000
+SubHeading.TextWrapped = true
+SubHeading.TextXAlignment = Enum.TextXAlignment.Left
+SubHeading.TextYAlignment = Enum.TextYAlignment.Top
+
+TopBar_2.Name = "TopBar"
+TopBar_2.Parent = NotifFrame
+TopBar_2.BackgroundColor3 = Color3.fromRGB(125, 125, 125)
+TopBar_2.BorderSizePixel = 0
+TopBar_2.Size = UDim2.new(0, 520, 0, 4)
+TopBar_2.ZIndex = 999999999
+
+BottomBar.Name = "BottomBar"
+BottomBar.Parent = Main_2
+BottomBar.BackgroundColor3 = Color3.fromRGB(230, 230, 230)
+BottomBar.BorderSizePixel = 0
+BottomBar.Position = UDim2.new(0, 0, 0.680798769, 0)
+BottomBar.Size = UDim2.new(0, 547, 0, 65)
+BottomBar.ZIndex = 100
+
+-- Scripts:
+
+local function KMUZE_fake_script() -- Player.Animate
+local script = Instance.new('LocalScript', Player)
+
+local noob = script.Parent.line4
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+script.Parent.Focused:Connect(function()
+Tween(noob, 0.3, {BackgroundTransparency = 0})
+end)
+
+script.Parent.FocusLost:Connect(function()
+Tween(noob, 0.3, {BackgroundTransparency = 1})
+end)
+end
+coroutine.wrap(KMUZE_fake_script)()
+local function RPUFR_fake_script() -- Kill.Animate
+local script = Instance.new('LocalScript', Kill)
+
+local noob = script.Parent
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+script.Parent.MouseEnter:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.75})
+end)
+
+script.Parent.MouseLeave:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.89})
+end)
+
+script.Parent.MouseButton1Click:Connect(function()
+local target = script.Parent.Parent.Player.Text
+local plr1 = game.Players.LocalPlayer.Character
+local plr2 = game.Workspace.Players:FindFirstChild(target)
+
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+local tool = game.Players.LocalPlayer.Backpack.Combat
+humanoid:EquipTool(tool)
+
+
+tool:Activate()
+
+wait(1.75)
+plr1.HumanoidRootPart.CFrame = plr2.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+wait(0.5)
+humanoid:UnequipTools(tool)
+end)
+end
+coroutine.wrap(RPUFR_fake_script)()
+local function ZMNO_fake_script() -- loadfaded.Animate
+local script = Instance.new('LocalScript', loadfaded)
+
+local noob = script.Parent
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+script.Parent.MouseEnter:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.75})
+end)
+
+script.Parent.MouseLeave:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.89})
+end)
+
+script.Parent.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
+end)
+end
+coroutine.wrap(ZMNO_fake_script)()
+local function ADAI_fake_script() -- Maintab.Animate
+local script = Instance.new('LocalScript', Maintab)
+
+local noob = script.Parent
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+script.Parent.MouseEnter:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.75})
+end)
+
+script.Parent.MouseLeave:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.89})
+end)
+
+script.Parent.MouseButton1Click:Connect(function()
+local target = script.Parent.Parent.Player.Text
+local plr1 = game.Players.LocalPlayer.Character
+local plr2 = game.Workspace.Players:FindFirstChild(target)
+
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+local tool = game.Players.LocalPlayer.Backpack.Combat
+humanoid:EquipTool(tool)
+
+
+tool:Activate()
+
+wait(1.75)
+plr1.HumanoidRootPart.CFrame = plr2.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+wait(0.5)
+humanoid:UnequipTools(tool)
+end)
+end
+coroutine.wrap(ADAI_fake_script)()
+local function HZWZBFP_fake_script() -- Main.Dragify
+local script = Instance.new('LocalScript', Main)
+
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+
+local Frame = script.Parent
+local StartPosition = nil
+local DragStart = nil
+local DragSpeed = 0.25
+local DragToggle = nil
+
+local function updateInput(Input)
+local Delta = Input.Position - DragStart
+local Position = UDim2.new(StartPosition.X.Scale, StartPosition.X.Offset + Delta.X, StartPosition.Y.Scale, StartPosition.Y.Offset + Delta.Y)
+TweenService:Create(Frame, TweenInfo.new(DragSpeed), {Position = Position}):Play()
+end
+
+Frame.InputBegan:Connect(function(Input)
+if (Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch) then
+DragToggle = true
+DragStart = Input.Position
+StartPosition = Frame.Position
+Input.Changed:Connect(function()
+if Input.UserInputState == Enum.UserInputState.End then
+DragToggle = false
+end
+end)
+end
+end)
+
+UserInputService.InputChanged:Connect(function(Input)
+if (Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch) then
+if DragToggle then
+updateInput(Input)
+end
+end
+end)
+end
+coroutine.wrap(HZWZBFP_fake_script)()
+local function BEEXEAO_fake_script() -- Login.Animate
+local script = Instance.new('LocalScript', Login)
+
+local noob = script.Parent
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+script.Parent.MouseEnter:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.75})
+end)
+
+script.Parent.MouseLeave:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.89})
+end)
+end
+coroutine.wrap(BEEXEAO_fake_script)()
+local function DEPIOTE_fake_script() -- Cancel.LocalScript
+local script = Instance.new('LocalScript', Cancel)
+
+script.Parent.MouseButton1Click:Connect(function()
+script.Parent.Parent.Parent.Parent:Destroy()
+end)
+end
+coroutine.wrap(DEPIOTE_fake_script)()
+local function RBHOYW_fake_script() -- Key.Animate
+local script = Instance.new('LocalScript', Key)
+
+local noob = script.Parent.line4
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+script.Parent.Focused:Connect(function()
+Tween(noob, 0.3, {BackgroundTransparency = 0})
+end)
+
+script.Parent.FocusLost:Connect(function()
+Tween(noob, 0.3, {BackgroundTransparency = 1})
+end)
+end
+coroutine.wrap(RBHOYW_fake_script)()
+local function NUUK_fake_script() -- Ok.Animate
+local script = Instance.new('LocalScript', Ok)
+
+local noob = script.Parent
+local noob2 = script.Parent.Parent.Parent
+local th = noob2.Parent.Parent.Parent.Main
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+script.Parent.MouseEnter:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.75})
+Tween(noob.UIStroke, 0.5, {Transparency = 0.5})
+end)
+
+script.Parent.MouseLeave:Connect(function()
+Tween(noob, 0.5, {BackgroundTransparency = 0.89})
+Tween(noob.UIStroke, 0.5, {Transparency = 0.75})
+end)
+
+script.Parent.MouseButton1Click:Connect(function()
+wait(0.1)
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+Tween(noob2, 1, {BackgroundTransparency = 1})
+
+wait(0.6)
+
+Tween(noob2.NotifFrame, 1, {Position = UDim2.new(0.024, 0,1.013, 0)})
+
+wait(1)
+noob2.Parent.Parent.Enabled = false
+wait(0.5)
+th.Visible = true
+noob2.Parent.Parent:Destroy()
+
+end)
+end
+coroutine.wrap(NUUK_fake_script)()
+local function GRGAHQ_fake_script() -- Notification.Animate
+local script = Instance.new('LocalScript', Notification)
+
+wait(2)
+local noob = script.Parent
+
+
+Tween = function(Obj, Time, Settings)
+game:GetService("TweenService"):Create(Obj, TweenInfo.new(Time), Settings):Play()
+end
+
+
+Tween(noob, 1, {BackgroundTransparency = 0.7})
+
+wait(0.6)
+
+Tween(noob.NotifFrame, 1, {Position = UDim2.new(0.024, 0,0.616, 0)})
+end
+coroutine.wrap(GRGAHQ_fake_script)()
+local function SSJE_fake_script() -- FusionV2.SetVis
+local script = Instance.new('LocalScript', FusionV2)
+
+local a = script.Parent
+
+a["Log In"].Enabled = true
+a.Main.Visible = false
+end
+coroutine.wrap(SSJE_fake_script)()
