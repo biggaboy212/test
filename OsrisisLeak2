@@ -1,10 +1,12 @@
---// biggaboy212 - not my leak
+p
+rint('works sec 1')--// biggaboy212 - not my leak
 
 
 
 --// 1 \\-- 
 -- Services
 local InputService, TeleportService, RunService, Workspace, Lighting, Players, HttpService, StarterGui, ReplicatedStorage  = game:GetService("UserInputService"), game:GetService("TeleportService"), game:GetService("RunService"), game:GetService("Workspace"), game:GetService("Lighting"), game:GetService("Players"), game:GetService("HttpService"), game:GetService("StarterGui"), game:GetService("ReplicatedStorage")
+print('works secction 2')
 -- Decendants 
 local LocalPlayer = Players.LocalPlayer
 local Wanted = LocalPlayer:WaitForChild("DataFolder").Information.Wanted
@@ -13,10 +15,12 @@ local Remote = ReplicatedStorage.MainEvent
 local Mouse, Camera, Dummy = LocalPlayer:GetMouse(), Workspace.Camera, game:GetObjects("rbxassetid://9474737816")[1]
 local Find, Clear, Sub, Upper, Lower = table.find, table.clear, string.sub, string.upper, string.lower
 local Huge, Pi, Clamp, Round, Abs, Floor, Random = math.huge, math.pi, math.clamp, math.round, math.abs, math.floor, math.random
+print('works secction 3')
 -- Dummy Settings
 Dummy.Parent = Workspace
 Dummy.PrimaryPart = Dummy.HumanoidRootPart
 Dummy.Head.Face:Destroy()
+print('works secction 4')
 -- Variables 
 local Osiris = {
     ["shit talk"] = {["Osiris"]={"sorry guys 😭 I pasted stormy 😔","Injecting ChatGPT.Hook!","Blah Blah Blah 😭😭😭😭","Clipped! -🤓","Sorry guys 🥺 Im using 0 prediction resolver😢","farthook ontop!!!!","Osiris 💳💥💳💥💳💥💳💥","Farthook Successfully Injected!","Guys Im using jjsploit!!!","bwootooth dwevice rwaeady to pwear 🤖🤖🤖","Yun is the best script -🤖","Buy the script at gg/osr","🍑👅❓","mafafaka 😡","stormy.solutions is the best da hood script!!!","Bluetooth bullets: Enabled 🤖"},["Yun"]={"YUN RUNS YOU"},["Specter"]={"specter.lua > u","sonned?","sad life","u shall quit"},["Anti Aim"]={"Cant resolve me!? Cant resolve me!? Cant resolve me!? Cant resolve me!? Cant resolve me!?"},["Advertisement"]={"OSIRIS THE BEST BUY OSIRIS AT GG/OSR","GOOGOO GAH GAH NO OSIRIS 😭😭"},["Scottish"]={"You Grandma Still Wears Shin Pads To Work 🤣🤣","Melon Head","Your Ma Is A Bin Man 🤣🤣","Your Da Sells Osiris 🤣🤣","Even Osiris Is Better Than You XD","Taped You Like I Did To Your Ma","Fore Headed Mong","Such A Fruit","YoUr A BoOt","keep Trying You Jobby"}},
@@ -49,6 +53,8 @@ for i,v in next, Osiris.sfx do
 end 
     
 --LPH_NO_VIRTUALIZE
+
+print('works secction 5')
 
 --// Functions 
     function Osiris:Connection(Type, Callback)
